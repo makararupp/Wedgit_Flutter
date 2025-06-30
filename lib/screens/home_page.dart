@@ -8,36 +8,30 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final scaffoldKey  = GlobalKey<ScaffoldState>();
+
     return Scaffold(
-        backgroundColor: Colors.white,
+       key: scaffoldKey,
         appBar: AppBar(
-          centerTitle: true,
           title: Text('Hello Flutter'),
-          backgroundColor: Colors.blue,
-         // leading: Icon(CupertinoIcons.home),
-          actions: [
-            IconButton(onPressed: (){debugPrint("Setting");},
-                icon: Icon(Icons.settings)
-            ),
-            IconButton(onPressed: (){print("Share");},
-                icon: Icon(Icons.share)
-            ),
-          ],
+         leading:IconButton(onPressed: (){
+           scaffoldKey.currentState!.openDrawer();
+         },
+             icon: Icon(CupertinoIcons.home))
         ),
         drawer: Drawer(
           child: ListView(
             padding:const EdgeInsets.all(0),
             children:<Widget> [
               DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
+                decoration: BoxDecoration(),
                 child: Row(
                   children: [
                     Center(
                       child: Container(
-                        width: 80,
-                        height: 80,
+                        width: 100,
+                        height: 100,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -50,7 +44,7 @@ class MyHome extends StatelessWidget {
                     const SizedBox(width: 16),
                     Text('Hello, Makara!',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
@@ -108,10 +102,9 @@ class MyHome extends StatelessWidget {
                   child: Text(
                     'Edit Home',
                     style: TextStyle(
-                      backgroundColor: Colors.blue,
-                      color: Colors.white, // Set your desired color
-                      fontWeight: FontWeight.bold, // Optional
-                      fontSize: 19, // Optional
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
                   ),
                 ),
@@ -119,25 +112,42 @@ class MyHome extends StatelessWidget {
             ],
           ),
         ),
+        endDrawer: Drawer(
+          backgroundColor: Colors.white,
+          child: Image.network(img,
+            fit: BoxFit.cover,
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(onPressed: (){},
-          backgroundColor: Colors.blue,
-          child: Icon(Icons.place),
+          child: Icon(Icons.qr_code_2_sharp),
         ),
         body: Center(
             child: Image.network(img)
         ),
         bottomNavigationBar: BottomAppBar(
-          color: Colors.blue,
+          notchMargin: 10,
+          shape: CircularNotchedRectangle(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              IconButton(onPressed: (){}, icon: Icon(Icons.home),),
-              IconButton(onPressed: (){}, icon: Icon(Icons.add),),
-              IconButton(onPressed: (){}, icon: Icon(Icons.person),),
-              IconButton(onPressed: (){debugPrint("more");}, icon: Icon(Icons.more_horiz)),
+              IconButton(onPressed: (){},
+                icon: Icon(Icons.home),
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(Icons.add),
+              ),
+              SizedBox(width: 40,),
+              IconButton(onPressed: (){},
+                icon: Icon(Icons.person),
+              ),
+              IconButton(onPressed: (){debugPrint("more");},
+                  icon: Icon(Icons.more_horiz)
+              ),
             ],
           ),
         ),
     );
+
   }
 }
