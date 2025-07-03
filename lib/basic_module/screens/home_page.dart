@@ -44,9 +44,7 @@ class MyHome extends StatelessWidget {
 
   Widget _buildMyText(){
     return Text(
-      "ប្រទេសកម្ពជា គឺជាប្រទេសដែលសម្បូរសម្បត្តិធម្មជាតិជាច្រើនដូចជាប្រាសាទនាៗ កម្រងធម្មជាតិសម្រាប់មនុស្សទៅកម្សាន្ត"
-          "នគរថ្មរនិងប្រាង្គប្រាសាទជាច្រើន សម្រាប់កូនខ្មែរគ្រប់រូបត្រូវចង់ចាំនាពេលអនាគតនិងថែរក្សាសម្រាប់ចៅៗជំនាន់ក្រោយ"
-          "យកមកផ្សព្វផ្សាយជាមួយភ្ងៀវបរទេសនាៗអោយបានទស្សនាប្រាសាទយើងនៃប្រទេសកម្ពុជា។",
+      "ប្រទេសកម្ពជា",
       style: TextStyle(
         fontSize: 30.0,
         color: Colors.black,
@@ -61,23 +59,66 @@ class MyHome extends StatelessWidget {
       // maxLines: 3,
     );
   }
+
   Widget _buildImg(){
-    return Image.network(img);
+    return Image.network(img,
+      width: double.infinity,
+      height: double.infinity,
+      fit: BoxFit.cover,
+      color: Colors.black12,
+      colorBlendMode: BlendMode.colorBurn,
+    );
   }
 
   // can use Widget because it's Widget.
   Widget _buildBody(){
     return Container(
       alignment: Alignment.center,
-      child: _buildImg(),
+      color: Colors.white,
+      child: _buildImage(),
     );
   }
+
+  Widget _buildImage(){
+    return Container(
+      width: 250,
+      height: 250,
+      decoration: BoxDecoration(
+        color: Colors.yellow,
+         shape: BoxShape.circle,
+       // borderRadius: BorderRadius.circular(50),
+        image: DecorationImage(
+          image: NetworkImage(img),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  // create child container in Container.
+  //Example : child : _buildBox().
+  // Widget _buildBox(){
+  //   return Container(
+  //     width: 250,
+  //     height: 250,
+  //     //color: Colors.red,
+  //     decoration: BoxDecoration(
+  //       color: Colors.red,
+  //       borderRadius: BorderRadius.only(
+  //         topLeft: Radius.circular(30),
+  //         bottomRight: Radius.circular(30),
+  //       ),
+  //     ),
+  //   );
+  // }
+
   // can use Widget because it's Widget.
   Widget _buildFloting(){
     return FloatingActionButton(onPressed: (){},
       child: Icon(Icons.qr_code_2_sharp),
     );
   }
+
   // can use Widget because it's Widget.
   Widget _buildButtom(){
     return BottomAppBar(
@@ -86,14 +127,14 @@ class MyHome extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){debugPrint("github");},
             icon: Icon(FontAwesomeIcons.github),
           ),
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){debugPrint("add");},
             icon: Icon(FontAwesomeIcons.plus),
           ),
           SizedBox(width: 40,),
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){debugPrint("database");},
             icon: Icon(FontAwesomeIcons.database),
           ),
           IconButton(onPressed: (){debugPrint("more");},
@@ -205,7 +246,6 @@ class MyHome extends StatelessWidget {
       child: Image.network(img,
         fit: BoxFit.cover,
       ),
-
     );
   }
 
