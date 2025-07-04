@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          color: Colors.blueAccent,
-          centerTitle: true,
+         // color: Colors.blueAccent,
+          //centerTitle: true,
         ),
         bottomAppBarTheme: BottomAppBarTheme(
             color: Colors.blue

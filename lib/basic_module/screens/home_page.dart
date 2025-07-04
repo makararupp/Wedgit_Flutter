@@ -19,12 +19,19 @@ class MyHome extends StatelessWidget {
         floatingActionButton: _buildFloting(),
         body: _buildBody(),
         bottomNavigationBar: _buildButtom(),
+        extendBody: true,
     );
   }
   //App can't use Widget because it;s PreferredSizeWidget.
+  String dragon =  "https://www.hollywoodinsider.com/wp-content/uploads/2022/06/The-Hollywood-Insider-Tribute-How-to-Train-Your-Dragon-Franchise.png";
   AppBar _buildAppBar(){
     return AppBar(
-        title: Text('Hello Flutter'),
+        title: Text('Hello Flutter',
+          style: TextStyle(
+              color: Colors.white,
+            fontSize: 25.0,
+          ),
+        ),
         actions: [
           IconButton(onPressed: (){},
             icon: Icon(FontAwesomeIcons.share),
@@ -38,7 +45,27 @@ class MyHome extends StatelessWidget {
         leading:IconButton(onPressed: (){
           scaffoldKey.currentState!.openDrawer();
         },
-            icon: Icon(CupertinoIcons.home))
+            icon: Icon(CupertinoIcons.home,size: 25.0,color: Colors.white,),),
+      // flexibleSpace: Container(
+      //   decoration: BoxDecoration(
+      //     gradient: LinearGradient(
+      //       colors: [
+      //           Colors.indigo,
+      //           Colors.pink,
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      flexibleSpace: Container(
+        child: Image.network(dragon,
+          fit: BoxFit.cover,
+          alignment: Alignment.topCenter,
+        ),
+      ),
+      bottom: PreferredSize(
+          preferredSize: Size.fromHeight(70),
+          child: SizedBox(),
+      ),
     );
   }
 
@@ -71,22 +98,46 @@ class MyHome extends StatelessWidget {
   }
 
   // can use Widget because it's Widget.
+  String pattern = "https://t3.ftcdn.net/jpg/02/77/30/98/360_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg";
   Widget _buildBody(){
     return Container(
       alignment: Alignment.center,
-      color: Colors.white,
-      child: _buildImage(),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(pattern),
+          repeat: ImageRepeat.repeat,
+        ),
+      ),
+      child: _buildBoxImage(),
     );
   }
 
   Widget _buildImage(){
     return Container(
-      width: 250,
-      height: 250,
+      width: 350,
+      height: 350,
       decoration: BoxDecoration(
         color: Colors.yellow,
          shape: BoxShape.circle,
-       // borderRadius: BorderRadius.circular(50),
+        image: DecorationImage(
+          image: NetworkImage(img),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(Colors.black, BlendMode.color),
+          alignment: Alignment.topCenter,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBoxImage(){
+    return Container(
+      width: 250,
+      height: 250,
+      transformAlignment: Alignment.center,
+      transform: Matrix4.rotationZ(0.7),
+      decoration: BoxDecoration(
+        color: Colors.yellow,
+        borderRadius: BorderRadius.circular(50),
         image: DecorationImage(
           image: NetworkImage(img),
           fit: BoxFit.cover,
@@ -146,7 +197,8 @@ class MyHome extends StatelessWidget {
   }
 
   Widget _buidlDrawer(){
-    return Drawer(
+    return Drawer
+      (
       child: ListView(
         padding:const EdgeInsets.all(0),
         children:<Widget> [
