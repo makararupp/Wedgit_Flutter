@@ -14,7 +14,7 @@ class MyHome extends StatelessWidget {
        key: scaffoldKey,
         appBar: _buildAppBar(),
         drawer: _buidlDrawer(),
-        endDrawer: _buildEndDrawer(),
+        //endDrawer: _buildEndDrawer(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: _buildFloting(),
         body: _buildBody(),
@@ -24,28 +24,49 @@ class MyHome extends StatelessWidget {
   }
   //App can't use Widget because it;s PreferredSizeWidget.
   String dragon =  "https://www.hollywoodinsider.com/wp-content/uploads/2022/06/The-Hollywood-Insider-Tribute-How-to-Train-Your-Dragon-Franchise.png";
+
+  Widget _buildSearchTextField(){
+    return Container(
+      height: 50.0,
+      //margin: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(2000.0),
+        color: Colors.brown.withOpacity(0.7),
+      ),
+      child: TextField(
+        keyboardType: TextInputType.emailAddress,
+        style: TextStyle(color: Colors.white),
+        textInputAction: TextInputAction.send,
+        autocorrect: false,
+        decoration: InputDecoration(
+          hintText: "Search........",
+          border: InputBorder.none,
+          hintStyle: TextStyle(color: Colors.white70),
+          icon: Icon(Icons.search, color: Colors.white,),
+        ),
+      ),
+    );
+  }
+
   AppBar _buildAppBar(){
     return AppBar(
-        title: Text('Hello Flutter',
-          style: TextStyle(
-              color: Colors.white,
-            fontSize: 25.0,
-          ),
-        ),
-        actions: [
-          IconButton(onPressed: (){},
-            icon: Icon(FontAwesomeIcons.share),
-            color: Colors.white,
-          ),
-          IconButton(onPressed: (){},
-            icon: Icon(FontAwesomeIcons.facebookMessenger),
-            color: Colors.white,
-          ),
-        ],
-        leading:IconButton(onPressed: (){
-          scaffoldKey.currentState!.openDrawer();
-        },
-            icon: Icon(CupertinoIcons.home,size: 25.0,color: Colors.white,),),
+        title: _buildSearchTextField(),
+
+        // actions: [
+        //   IconButton(onPressed: (){},
+        //     icon: Icon(FontAwesomeIcons.share),
+        //     color: Colors.white,
+        //   ),
+        //   IconButton(onPressed: (){},
+        //     icon: Icon(FontAwesomeIcons.facebookMessenger),
+        //     color: Colors.white,
+        //   ),
+        // ],
+        // leading:IconButton(onPressed: (){
+        //   scaffoldKey.currentState!.openDrawer();
+        // },
+        //     icon: Icon(CupertinoIcons.home,size: 25.0,color: Colors.white,),),
       // flexibleSpace: Container(
       //   decoration: BoxDecoration(
       //     gradient: LinearGradient(
@@ -56,14 +77,14 @@ class MyHome extends StatelessWidget {
       //     ),
       //   ),
       // ),
-      flexibleSpace: Container(
-        child: Image.network(dragon,
-          fit: BoxFit.cover,
-          alignment: Alignment.topCenter,
-        ),
-      ),
+      // flexibleSpace: Container(
+      //   child: Image.network(dragon,
+      //     fit: BoxFit.cover,
+      //     alignment: Alignment.topCenter,
+      //   ),
+      // ),
       bottom: PreferredSize(
-          preferredSize: Size.fromHeight(70),
+          preferredSize: Size.fromHeight(10),
           child: SizedBox(),
       ),
     );
@@ -99,16 +120,75 @@ class MyHome extends StatelessWidget {
 
   // can use Widget because it's Widget.
   String pattern = "https://t3.ftcdn.net/jpg/02/77/30/98/360_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg";
+
   Widget _buildBody(){
     return Container(
       alignment: Alignment.center,
+      color: Colors.white,
+      // decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //     image: NetworkImage(pattern),
+      //     repeat: ImageRepeat.repeat,
+      //   ),
+      // ),
+      child: _buildPasswordTextField(),
+    );
+  }
+
+  Widget _buildEmailTextField(){
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(pattern),
-          repeat: ImageRepeat.repeat,
+        borderRadius: BorderRadius.circular(20.0),
+        color: Colors.blue,
+      ),
+      child: TextField(
+        keyboardType: TextInputType.emailAddress,
+        style: TextStyle(color: Colors.white),
+        textInputAction: TextInputAction.send,
+        autocorrect: false,
+        decoration: InputDecoration(
+          hintText: "Enter email address",
+          border: InputBorder.none,
+          hintStyle: TextStyle(color: Colors.white70),
+          icon: Icon(Icons.email, color: Colors.white,),
+          suffixIcon: IconButton(
+              onPressed: (){},
+              icon: Icon(Icons.send,color: Colors.white,),
+          ),
         ),
       ),
-      child: _buildBoxImage(),
+    );
+  }
+
+  Widget _buildPasswordTextField(){
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0),
+        color: Colors.blue,
+      ),
+      child: TextField(
+        style: TextStyle(color: Colors.white),
+        textInputAction: TextInputAction.send,
+        obscureText: true,
+        autocorrect: false,
+        decoration: InputDecoration(
+          hintText: "Enter password",
+          border: InputBorder.none,
+          hintStyle: TextStyle(color: Colors.white70),
+          suffixIcon: IconButton(onPressed:(){},
+               icon: Icon(Icons.visibility,
+                 color: Colors.white,
+            ),
+          ),
+          icon: Icon(Icons.key,
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 
@@ -228,6 +308,10 @@ class MyHome extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: _buildSearchTextField(),
           ),
           ListTile(
             leading: Icon(Icons.home),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projects/basic_module/screens/home_page.dart';
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -12,8 +11,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-         // color: Colors.blueAccent,
-          //centerTitle: true,
+         color: Colors.blueAccent,
+          centerTitle: true,
         ),
         bottomAppBarTheme: BottomAppBarTheme(
             color: Colors.blue
