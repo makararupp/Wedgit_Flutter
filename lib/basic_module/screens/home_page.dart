@@ -1,27 +1,35 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class MyHome extends StatelessWidget {
- // const MyHome({super.key});
+//Class Parent
+class MyHome extends StatefulWidget {
+  @override
+  State<MyHome> createState() => _MyHomeState();
 
+}
+// State
+class _MyHomeState extends State<MyHome> {
+ // const MyHome({super.key});
   final img = 'https://media.licdn.com/dms/image/v2/D5603AQEeZIJ_l6WsFQ/profile-displayphoto-shrink_800_800/B56Zcg_ESSGoAc-/0/1748605093428?e=1756339200&v=beta&t=bk2DvychZjNWad3CS14cm7farWXmyJp3POIbYuZSbfg';
+
   final scaffoldKey  = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
   return Scaffold(
        key: scaffoldKey,
+        backgroundColor: _dark ? Colors.blueGrey : Colors.white,
         appBar: _buildAppBar(),
         drawer: _buidlDrawer(),
         //endDrawer: _buildEndDrawer(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: _buildFloting(),
+        floatingActionButton: _hide ? null : _buildFloting(),
         body: _buildBody(),
-        bottomNavigationBar: _buildButtom(),
+        bottomNavigationBar: _hide ? null : _buildButtom(),
         extendBody: true,
     );
   }
+
   //App can't use Widget because it;s PreferredSizeWidget.
   String dragon =  "https://www.hollywoodinsider.com/wp-content/uploads/2022/06/The-Hollywood-Insider-Tribute-How-to-Train-Your-Dragon-Franchise.png";
 
@@ -49,20 +57,53 @@ class MyHome extends StatelessWidget {
     );
   }
 
+  bool _dark = false;
+  bool _hide = false;
+  double _size = 0;
+
   AppBar _buildAppBar(){
     return AppBar(
-        title: _buildSearchTextField(),
-
-        // actions: [
-        //   IconButton(onPressed: (){},
-        //     icon: Icon(FontAwesomeIcons.share),
-        //     color: Colors.white,
-        //   ),
-        //   IconButton(onPressed: (){},
-        //     icon: Icon(FontAwesomeIcons.facebookMessenger),
-        //     color: Colors.white,
-        //   ),
-        // ],
+      backgroundColor: _dark == true ? Colors.black : Colors.orange,
+        title: Text('Hello',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25.0,
+          ),
+        ),
+        actions: [
+          IconButton(onPressed: (){
+            setState(() {
+               _size++;
+            });
+          },
+            icon: Icon(Icons.add),
+            color: Colors.white,
+          ),
+          IconButton(onPressed: (){
+            setState(() {
+              _size--;
+            });
+          },
+            icon: Icon(Icons.remove),
+            color: Colors.white,
+          ),
+          IconButton(onPressed: (){
+            setState(() {
+              _dark = !_dark;
+            });
+          },
+            icon: Icon(_dark ? Icons.light_mode : Icons.dark_mode),
+            color: Colors.white,
+          ),
+          IconButton(onPressed: (){
+            setState(() {
+              _hide = !_hide;
+            });
+          },
+            icon: Icon(_hide ? Icons.visibility : Icons.visibility_off),
+            color: Colors.white,
+          ),
+        ],
         // leading:IconButton(onPressed: (){
         //   scaffoldKey.currentState!.openDrawer();
         // },
@@ -121,17 +162,34 @@ class MyHome extends StatelessWidget {
   // can use Widget because it's Widget.
   String pattern = "https://t3.ftcdn.net/jpg/02/77/30/98/360_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg";
 
+  //under score private
+  String _text = "Trump, speaking to reporters aboard Air Force One as he traveled to New Jersey, declined to name the countries involved, saying that would be made public on Monday.";
+  Widget _buildFloting(){
+    return FloatingActionButton(onPressed: (){
+       setState(() {
+         _text = "I am okay";
+       });
+      debugPrint(_text,);
+    },
+      child: Icon(Icons.qr_code_2_sharp,
+        size: 40.0,color: Colors.pinkAccent,
+      ),
+      shape: CircleBorder(),
+    );
+  }
+
   Widget _buildBody(){
     return Container(
       alignment: Alignment.center,
-      color: Colors.white,
+      padding: EdgeInsets.all(20.0),
+      child: Text(_text,style: TextStyle(fontSize: 20.0 + _size),),
       // decoration: BoxDecoration(
       //   image: DecorationImage(
       //     image: NetworkImage(pattern),
       //     repeat: ImageRepeat.repeat,
       //   ),
       // ),
-      child: _buildPasswordTextField(),
+    //  child: _buildPasswordTextField(),
     );
   }
 
@@ -227,32 +285,9 @@ class MyHome extends StatelessWidget {
   }
 
   // create child container in Container.
-  //Example : child : _buildBox().
-  // Widget _buildBox(){
-  //   return Container(
-  //     width: 250,
-  //     height: 250,
-  //     //color: Colors.red,
-  //     decoration: BoxDecoration(
-  //       color: Colors.red,
-  //       borderRadius: BorderRadius.only(
-  //         topLeft: Radius.circular(30),
-  //         bottomRight: Radius.circular(30),
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // can use Widget because it's Widget.
-  Widget _buildFloting(){
-    return FloatingActionButton(onPressed: (){},
-      child: Icon(Icons.qr_code_2_sharp),
-    );
-  }
-
-  // can use Widget because it's Widget.
   Widget _buildButtom(){
     return BottomAppBar(
+      color: Colors.orange,
       notchMargin: 10,
       shape: CircularNotchedRectangle(),
       child: Row(
@@ -311,7 +346,7 @@ class MyHome extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: _buildSearchTextField(),
+          //  child: _buildSearchTextField(),
           ),
           ListTile(
             leading: Icon(Icons.home),
