@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projects/basic_module/screens/home_page.dart';
+import 'package:projects/children_module/page/row_column_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -7,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHome(),
+      home: RowColumnPage(),
       debugShowCheckedModeBanner: false,
       // theme: ThemeData(
       //   appBarTheme: AppBarTheme(
