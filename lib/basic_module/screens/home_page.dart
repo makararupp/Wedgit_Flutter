@@ -42,7 +42,7 @@ class _MyHomeState extends State<MyHome> {
         borderRadius: BorderRadius.circular(2000.0),
         color: Colors.brown.withOpacity(0.7),
       ),
-      child: TextField(
+      child: const TextField(
         keyboardType: TextInputType.emailAddress,
         style: TextStyle(color: Colors.white),
         textInputAction: TextInputAction.send,
@@ -182,7 +182,7 @@ class _MyHomeState extends State<MyHome> {
     return Container(
       alignment: Alignment.center,
       padding: EdgeInsets.all(20.0),
-      child: Text(_text,style: TextStyle(fontSize: 20.0 + _size),),
+      child: _buildPasswordTextField(),
       // decoration: BoxDecoration(
       //   image: DecorationImage(
       //     image: NetworkImage(pattern),
@@ -220,6 +220,8 @@ class _MyHomeState extends State<MyHome> {
     );
   }
 
+  bool _hidePassword = true;
+
   Widget _buildPasswordTextField(){
     return Container(
       margin: EdgeInsets.all(10.0),
@@ -231,14 +233,18 @@ class _MyHomeState extends State<MyHome> {
       child: TextField(
         style: TextStyle(color: Colors.white),
         textInputAction: TextInputAction.send,
-        obscureText: true,
+        obscureText: _hidePassword,
         autocorrect: false,
         decoration: InputDecoration(
           hintText: "Enter password",
           border: InputBorder.none,
           hintStyle: TextStyle(color: Colors.white70),
-          suffixIcon: IconButton(onPressed:(){},
-               icon: Icon(Icons.visibility,
+          suffixIcon: IconButton(onPressed:(){
+            setState(() {
+              _hidePassword = !_hidePassword;
+            });
+          },
+               icon: Icon(_hidePassword ? Icons.visibility_off : Icons.visibility,
                  color: Colors.white,
             ),
           ),
