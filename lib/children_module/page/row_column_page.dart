@@ -80,7 +80,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
             children:
              [
                IconButton(onPressed: (){},  icon: Icon(Icons.face)),
-               Text("makara_sam7777"),
+               Text("sam_makara7777"),
                Spacer(),
                IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz),),
              ],
