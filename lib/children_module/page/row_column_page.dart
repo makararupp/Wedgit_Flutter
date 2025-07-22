@@ -64,8 +64,19 @@ class _RowColumnPageState extends State<RowColumnPage> {
     return Container(
       alignment: Alignment.center,
       color: Colors.grey[300],
-      child: SingleChildScrollView(
-        child: _buildIGPost(),
+      child: _buildColumnList(),
+    );
+  }
+
+  Widget _buildColumnList(){
+    return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
+      child: Column(
+        children: [
+          _buildIGPost(),
+          _buildIGPost2(),
+          _buildIGPost3(),
+        ],
       ),
     );
   }
@@ -103,6 +114,94 @@ class _RowColumnPageState extends State<RowColumnPage> {
               ),
               IconButton(onPressed: (){},
                   icon: Icon(CupertinoIcons.arrow_up_circle),
+              ),
+              Spacer(),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.bookmark),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  Widget _buildIGPost2(){
+    String ig = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA7GhrOqUPfstlE2t4W3ij99FVYWJKY3Td3Q&s";
+    return Card(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children:
+            [
+              IconButton(onPressed: (){},  icon: Icon(Icons.face)),
+              Text("Dragon_movie"),
+              Spacer(),
+              IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz),),
+            ],
+
+          ),
+          Container(
+            height: 400.0,
+            width: double.maxFinite,
+            child: Image.network(ig,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Row(
+            children: [
+              IconButton(onPressed: (){},
+                  icon: Icon(CupertinoIcons.heart)
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.chat_bubble),
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.arrow_up_circle),
+              ),
+              Spacer(),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.bookmark),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  Widget _buildIGPost3(){
+    String ig = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAkKPFaTuL7DhzknMnOvk5s32984nWlPyMvg&s";
+    return Card(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children:
+            [
+              IconButton(onPressed: (){},  icon: Icon(Icons.face)),
+              Text("dev_ops"),
+              Spacer(),
+              IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz),),
+            ],
+
+          ),
+          Container(
+            height: 400.0,
+            width: double.maxFinite,
+            child: Image.network(ig,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Row(
+            children: [
+              IconButton(onPressed: (){},
+                  icon: Icon(CupertinoIcons.heart)
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.chat_bubble),
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.arrow_up_circle),
               ),
               Spacer(),
               IconButton(onPressed: (){},
