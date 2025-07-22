@@ -6,4 +6,4 @@ Welcome to flutter 3 with the best guild
 
 2.Build column list with SingleChildScrollView
 
-<img alt="img_1.png" height="600" src="img_1.png" width="400"/>
+  <img alt="img_1.png" height="600" src="img_1.png" width="400"/>
