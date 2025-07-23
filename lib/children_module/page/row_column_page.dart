@@ -16,6 +16,8 @@ class _RowColumnPageState extends State<RowColumnPage> {
       body: _buildBody(),
     );
   }
+
+
   // AppBar can't create by the widget.
   AppBar _buildAppBar(){
    return AppBar(
@@ -95,7 +97,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
                Spacer(),
                IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz),),
              ],
-      
+
           ),
           Container(
               height: 400.0,
