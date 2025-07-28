@@ -11,7 +11,7 @@ class ChildrenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ListviewPage(),
+      home: GradViewPage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
