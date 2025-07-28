@@ -36,6 +36,7 @@ class _ListviewPageState extends State<ListviewPage> {
 
   Widget _buildColumnList(int count){
     return SingleChildScrollView(
+      padding: EdgeInsets.all(10.0),
       physics: BouncingScrollPhysics(),
       child: Column(
         children: [
