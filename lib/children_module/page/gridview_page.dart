@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../constants/movielist_constant.dart';
+
 class GradViewPage extends StatefulWidget {
   const GradViewPage({super.key});
 
@@ -9,6 +11,8 @@ class GradViewPage extends StatefulWidget {
 }
 
 class _GradViewPageState extends State<GradViewPage> {
+
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -19,15 +23,36 @@ class _GradViewPageState extends State<GradViewPage> {
     ]);
     return Scaffold(
       appBar: AppBar(
-        title: Text("GridView Page",style: TextStyle(color:Colors.white),),
+        title: Text("ListView Page",style: TextStyle(color:Colors.white),),
       ),
       body: _buildBody(),
     );
   }
 
   Widget _buildBody(){
-    return _buildViewCount();
+    return _buildViewBuilder();
   }
+  
+  Widget _buildViewBuilder(){
+    return GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount:3,
+           mainAxisSpacing: 5,
+           crossAxisSpacing: 5,
+           childAspectRatio: 1/2,
+        ),
+        itemCount: movieListConstant.length,
+        itemBuilder: (context, index){
+          return Container(
+              child: Image.network(
+                movieListConstant[index].imageUrl,
+                fit: BoxFit.cover,
+              ),
+          );
+        },
+    );
+  }
+  
 
   Widget _buildViewCount(){
     return GridView.count(

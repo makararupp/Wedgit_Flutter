@@ -3,6 +3,7 @@ import 'package:projects/basic_module/screens/home_page.dart';
 import 'package:projects/children_module/page/row_column_page.dart';
 
 import '../page/gridview_page.dart';
+import '../page/listView_page.dart';
 
 class ChildrenApp extends StatelessWidget {
   const ChildrenApp({super.key});
@@ -10,7 +11,7 @@ class ChildrenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: GradViewPage(),
+      home: ListviewPage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
