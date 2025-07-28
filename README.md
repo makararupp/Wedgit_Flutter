@@ -18,4 +18,4 @@ Welcome to flutter 3 with the best guild
 
 4. GrideView Page
 
-<img alt="gridView.png" height="600" src="assets%2Fimages%2FgridView.png" width="400"/>
+<img alt="gridView.png" height="600" src="assets%2Fimages%2FgridView.png" width="300"/>
