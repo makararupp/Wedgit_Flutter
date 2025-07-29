@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projects/basic_module/screens/home_page.dart';
+import 'package:projects/children_module/page/pageview_page.dart';
 import 'package:projects/children_module/page/row_column_page.dart';
 
 import '../page/gridview_page.dart';
@@ -11,7 +12,7 @@ class ChildrenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ListviewPage(),
+      home: PageViewPage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
