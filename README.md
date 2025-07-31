@@ -36,3 +36,7 @@ Welcome to flutter 3 with the best guild
  3. controller
 
 <img alt="page_view.png" height="600" src="assets%2Fimages%2Fpage_view.png" width="300"/>
+
+7. Tik Tok PageView Builder
+
+<img alt="tik_tok.png" height="600" src="assets%2Fimages%2Ftik_tok.png" width="300"/>

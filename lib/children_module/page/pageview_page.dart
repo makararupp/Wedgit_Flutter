@@ -24,6 +24,8 @@ class _PageViewPageState extends State<PageViewPage> {
   }
   Widget _buildPageView(){
     return PageView(
+      physics: BouncingScrollPhysics(),
+      scrollDirection: Axis.vertical,
       children: [
         Container(width: 60.0,height: 100, color: Colors.purple,),
         Container(width: 150.0,height: 50, color: Colors.blueGrey,),
