@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projects/children_module/models/movie_model.dart';
-import 'package:projects/children_module/page/pageview_page.dart';
-
 import '../constants/movielist_constant.dart';
 
 class TikTokViewPage extends StatefulWidget {
@@ -61,6 +59,7 @@ class _TikTokViewPageState extends State<TikTokViewPage> {
         }
     );
   }
+
   Widget _buildlItem(Movie model){
     return Stack(
       alignment: Alignment.center,
@@ -104,4 +103,5 @@ class _TikTokViewPageState extends State<TikTokViewPage> {
       ],
     );
   }
+
 }
