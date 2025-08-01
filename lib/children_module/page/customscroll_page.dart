@@ -22,12 +22,72 @@ class _CustomPageState extends State<CustomPage> {
     return CustomScrollView(
       slivers: [
           _buildAppBar(),
-          _buildListView(),
-          _buildAds(),
-        _buildListView(),
+         SliverToBoxAdapter(
+             child: _buildPageView(),
+         ),
       ],
     );
   }
+
+  Widget _buildPageView(){
+    return SizedBox(
+       height: MediaQuery.of(context).size.height,
+       width: MediaQuery.of(context).size.width,
+      child: PageView.builder(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          itemCount: movieListConstant.length,
+          itemBuilder:(context, index){
+            return _buildItems(movieListConstant[index]);
+          }
+      ),
+    );
+  }
+
+  Widget _buildItems(Movie model){
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        //custom fill Positioned:
+        Positioned.fill(
+          child: Image.network(model.imageUrl, fit: BoxFit.cover,),
+        ),
+        Positioned(
+          right: 10.0,
+          bottom: 30.0,
+          child:Column(
+            children: [
+              IconButton(onPressed: (){},
+                icon: Icon(
+                  Icons.face,
+                  color: Colors.white,
+                ),
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(
+                  Icons.favorite,
+                  color: Colors.white,
+                ),
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(
+                  Icons.bookmark,
+                  color: Colors.white,
+                ),
+              ),
+              IconButton(onPressed: (){},
+                icon: const Icon(
+                  CupertinoIcons.arrowshape_turn_up_right_fill,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
 
   bool _pind = true;
 
