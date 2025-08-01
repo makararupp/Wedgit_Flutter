@@ -15,6 +15,7 @@ class _CustomPageState extends State<CustomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildBody(),
+      drawer: Drawer(),
     );
   }
 
@@ -31,6 +32,10 @@ class _CustomPageState extends State<CustomPage> {
     return SliverAppBar(
       backgroundColor: Colors.blue,
       title: Text('Custom Scroll View'),
+      floating: true,
+      actions: [
+        IconButton(onPressed: (){}, icon: Icon(Icons.settings)),
+      ],
     );
   }
 
