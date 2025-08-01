@@ -40,3 +40,7 @@ Welcome to flutter 3 with the best guild
 7. Tik Tok PageView Builder
 
 <img alt="tik_tok.png" height="600" src="assets%2Fimages%2Ftik_tok.png" width="300"/>
+
+8. Custom Scroll View
+
+<img alt="custom_scroll.png" height="600" src="assets%2Fimages%2Fcustom_scroll.png" width="300"/>
