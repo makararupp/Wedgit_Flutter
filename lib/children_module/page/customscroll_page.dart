@@ -29,9 +29,20 @@ class _CustomPageState extends State<CustomPage> {
     );
   }
 
+  bool _pind = true;
+
   Widget _buildAds(){
     return SliverAppBar(
-      pinned: true,
+      pinned: _pind,
+        actions: [
+            IconButton(onPressed: (){
+              setState(() {
+                _pind = !_pind;
+              });
+            },
+                icon: Icon(_pind ? CupertinoIcons.pin_slash_fill : CupertinoIcons.pin_fill,color: Colors.white,),
+            ),
+        ],
         flexibleSpace: Container(
           child: Image.network("https://cdn.britannica.com/24/77424-050-4FF80B58/Angkor-Wat-Cambodia.jpg",
             fit: BoxFit.cover,
