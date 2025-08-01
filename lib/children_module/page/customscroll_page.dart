@@ -15,7 +15,6 @@ class _CustomPageState extends State<CustomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildBody(),
-      drawer: Drawer(),
     );
   }
 
@@ -23,8 +22,24 @@ class _CustomPageState extends State<CustomPage> {
     return CustomScrollView(
       slivers: [
           _buildAppBar(),
-          _buildListView()
+          _buildListView(),
+          _buildAds(),
+        _buildListView(),
       ],
+    );
+  }
+
+  Widget _buildAds(){
+    return SliverAppBar(
+      pinned: true,
+        flexibleSpace: Container(
+          child: Image.network("https://cdn.britannica.com/24/77424-050-4FF80B58/Angkor-Wat-Cambodia.jpg",
+            fit: BoxFit.cover,
+          ),
+        ),
+      bottom: PreferredSize(preferredSize: Size.fromHeight(80.0),
+          child: Container(),
+      ),
     );
   }
 
@@ -33,6 +48,7 @@ class _CustomPageState extends State<CustomPage> {
       backgroundColor: Colors.blue,
       title: Text('Custom Scroll View'),
       floating: true,
+     // pinned: true,
       actions: [
         IconButton(onPressed: (){}, icon: Icon(Icons.settings)),
       ],
