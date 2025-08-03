@@ -54,7 +54,7 @@ class _CustomPageState extends State<CustomPage> {
         ),
         Positioned(
           right: 10.0,
-          bottom: 30.0,
+          bottom: 100.0,
           child:Column(
             children: [
               IconButton(onPressed: (){},
@@ -184,4 +184,5 @@ class _CustomPageState extends State<CustomPage> {
       ),
     );
   }
+
 }

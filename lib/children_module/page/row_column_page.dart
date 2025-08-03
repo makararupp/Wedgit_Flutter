@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RowColumnPage extends StatefulWidget {
   const RowColumnPage({super.key});
@@ -11,13 +12,17 @@ class RowColumnPage extends StatefulWidget {
 class _RowColumnPageState extends State<RowColumnPage> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return Scaffold(
+      backgroundColor: Colors.grey[400],
       appBar: _buildAppBar(),
       body: _buildBody(),
     );
   }
-
-
   // AppBar can't create by the widget.
   AppBar _buildAppBar(){
    return AppBar(
@@ -66,7 +71,51 @@ class _RowColumnPageState extends State<RowColumnPage> {
     return Container(
       alignment: Alignment.center,
       color: Colors.grey[300],
-      child: _buildColumnList(),
+      child: _buildExpended(),
+    );
+  }
+
+  Widget _buildExpended(){
+    return Column(
+      children: [
+        Expanded(
+            child: _buildColumnList(),
+        ),
+        _buildTextBoxBar(),
+      ],
+    );
+  }
+
+  Widget _buildTextBoxBar(){
+    return  Container(
+      color: Colors.grey[400],
+      padding: EdgeInsets.only(left: 10, right: 10, bottom: 30, top: 10),
+      alignment: Alignment.topCenter,
+      child: Row(
+        children: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.attach_file)),
+          Expanded(child: _buildMessageTextField(),),
+          IconButton(onPressed: (){}, icon: Icon(Icons.mic)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMessageTextField(){
+    return Container(
+      //ដកឃ្លា ១០ចេញពីរឆ្វេង។
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(100.0),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: "Message",
+          suffixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.face)),
+        ),
+      ),
     );
   }
 
