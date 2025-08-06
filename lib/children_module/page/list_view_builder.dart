@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 
-class ListViewBuilder extends StatefulWidget {
-  const ListViewBuilder({super.key});
+class ListViewPage extends StatefulWidget {
+  const ListViewPage({super.key});
 
   @override
-  State<ListViewBuilder> createState() => _ListViewBuilderState();
+  State<ListViewPage> createState() => _ListViewPageState();
 }
 
-class _ListViewBuilderState extends State<ListViewBuilder> {
+class _ListViewPageState extends State<ListViewPage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
