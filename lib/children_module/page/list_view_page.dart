@@ -25,22 +25,24 @@ class _ListViewPageState extends State<ListViewPage> {
     return _buildListViewBuilder();
   }
 
+  List<String> imgs = [
+    "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+    "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+    "https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg"
+  ];
+
   Widget _buildListViewBuilder(){
-    return SizedBox(
-      height: 100.0,
-      child: ListView.builder(
-         physics: BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemCount:  10,
-          itemBuilder: (context , index){
-             return Container(
-               color: Colors.blue,
-               margin: EdgeInsets.all(10.0),
-               padding: EdgeInsets.all(20.0),
-               child: Text('$index'),
-             );
-          },
-      ),
+    return ListView.builder(
+       physics: BouncingScrollPhysics(),
+        itemCount: imgs.length,
+        itemBuilder: (context , index){
+           return Container(
+             color: Colors.black,
+             margin: EdgeInsets.all(10.0),
+             padding: EdgeInsets.all(20.0),
+             child: Image.network(imgs[index]),
+           );
+        },
     );
   }
 
