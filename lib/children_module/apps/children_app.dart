@@ -7,6 +7,7 @@ import 'package:projects/children_module/page/tik_tok.dart';
 import '../page/customscroll_page.dart';
 import '../page/gridview_page.dart';
 import '../page/listView_page.dart';
+import '../page/list_view_builder.dart';
 
 class ChildrenApp extends StatelessWidget {
   const ChildrenApp({super.key});
@@ -14,7 +15,7 @@ class ChildrenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: RowColumnPage(),
+      home: ListViewBuilder(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
