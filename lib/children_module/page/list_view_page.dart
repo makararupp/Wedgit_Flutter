@@ -22,7 +22,26 @@ class _ListViewPageState extends State<ListViewPage> {
   }
 
   Widget _buildBody(){
-    return _buildListView();
+    return _buildListViewBuilder();
+  }
+
+  Widget _buildListViewBuilder(){
+    return SizedBox(
+      height: 100.0,
+      child: ListView.builder(
+         physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          itemCount:  10,
+          itemBuilder: (context , index){
+             return Container(
+               color: Colors.blue,
+               margin: EdgeInsets.all(10.0),
+               padding: EdgeInsets.all(20.0),
+               child: Text('$index'),
+             );
+          },
+      ),
+    );
   }
 
   Widget _buildListView(){

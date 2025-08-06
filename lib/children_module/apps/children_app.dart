@@ -7,7 +7,7 @@ import 'package:projects/children_module/page/tik_tok.dart';
 import '../page/customscroll_page.dart';
 import '../page/gridview_page.dart';
 import '../page/listView_page.dart';
-import '../page/list_view_builder.dart';
+import '../page/list_view_page.dart';
 
 class ChildrenApp extends StatelessWidget {
   const ChildrenApp({super.key});
