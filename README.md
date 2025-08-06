@@ -57,3 +57,7 @@ Welcome to flutter 3 with the best guild
 11. Build The List View Builder
 
 <img alt="ListViewBuilder.png" height="600" src="assets%2Fimages%2FListViewBuilder.png" width="300"/>
+
+12. List View Page Builder with the options
+
+<img alt="list_view_page.png" height="600" src="assets%2Fimages%2Flist_view_page.png" width="300"/>
