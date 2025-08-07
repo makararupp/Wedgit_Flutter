@@ -17,25 +17,35 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget _buildBody(){
-   return Scaffold(
-     appBar: AppBar(
-       backgroundColor: Colors.blue,
-       title: Center(
-           child: Text("Multiple Page",
-             style: TextStyle(color: Colors.white),
-           ),
-       ),
-     ),
+   return IndexedStack(
+     index: _currentIndex,
+     children: [
+       Container(color: Colors.red,),
+       Container(color: Colors.yellow,),
+       Container(color: Colors.cyan,),
+       Container(color: Colors.purple,),
+     ],
    );
   }
+  int _currentIndex = 0;
 
   Widget _buildBottomNavigationBar(){
       return BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index){
+          setState(() {
+            _currentIndex = index;
+          });
+        },
         type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.black,
+          //showSelectedLabels: false,
+          showUnselectedLabels: false,
           items: [
             BottomNavigationBarItem(icon: (Icon(Icons.home)),label: "Home"),
-            BottomNavigationBarItem(icon: (Icon(Icons.menu)),label: "Menu"),
             BottomNavigationBarItem(icon: (Icon(Icons.play_circle)),label: "Play"),
+            BottomNavigationBarItem(icon: (Icon(Icons.more_horiz)),label: "More"),
             BottomNavigationBarItem(icon: (Icon(Icons.search)),label: "Search"),
           ]
       );

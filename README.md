@@ -72,3 +72,7 @@ Welcome to flutter 3 with the best guild
   . There must be at least 2 (Icons, title)
 
 <img alt="bottom_navigation_bar.png" height="600" src="assets%2Fimages%2Fbottom_navigation_bar.png" width="300"/>
+
+- Update BottomNavigationBarItem
+
+<img alt="update_bottom.png" height="600" src="assets%2Fimages%2Fupdate_bottom.png" width="300"/>
