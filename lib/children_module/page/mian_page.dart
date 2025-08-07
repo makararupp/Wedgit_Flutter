@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projects/children_module/page/list_view_page.dart';
+import 'package:projects/children_module/page/row_column_page.dart';
+import 'package:projects/children_module/page/tik_tok.dart';
+
+import 'customscroll_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -20,10 +25,10 @@ class _MainPageState extends State<MainPage> {
    return IndexedStack(
      index: _currentIndex,
      children: [
-       Container(color: Colors.red,),
-       Container(color: Colors.yellow,),
-       Container(color: Colors.cyan,),
-       Container(color: Colors.purple,),
+       TikTokViewPage(),
+       ListViewPage(),
+       RowColumnPage(),
+       CustomPage(),
      ],
    );
   }
@@ -41,7 +46,7 @@ class _MainPageState extends State<MainPage> {
           selectedItemColor: Colors.blue,
           unselectedItemColor: Colors.black,
           //showSelectedLabels: false,
-          showUnselectedLabels: false,
+         // showUnselectedLabels: false,
           items: [
             BottomNavigationBarItem(icon: (Icon(Icons.home)),label: "Home"),
             BottomNavigationBarItem(icon: (Icon(Icons.play_circle)),label: "Play"),

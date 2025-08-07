@@ -20,7 +20,7 @@ class _TikTokViewPageState extends State<TikTokViewPage> {
         title: Text("TikTok Page",style: TextStyle(color:Colors.white),),
       ),
       body: _buildBody(),
-      bottomNavigationBar: _buildButtom(),
+      //bottomNavigationBar: _buildButtom(),
     );
   }
 

@@ -76,3 +76,7 @@ Welcome to flutter 3 with the best guild
 - Update BottomNavigationBarItem
 
 <img alt="update_bottom.png" height="600" src="assets%2Fimages%2Fupdate_bottom.png" width="300"/>
+
+- IndexStack
+
+<img alt="Index_stack.png" height="600" src="assets%2Fimages%2FIndex_stack.png" width="300"/>
