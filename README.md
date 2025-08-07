@@ -65,3 +65,10 @@ Welcome to flutter 3 with the best guild
 13. List View Builder updated the image
 
 <img alt="list_view_builder.png" height="650" src="assets%2Fimages%2Flist_view_builder.png" width="400"/>
+
+14. build bottomNavigationBar
+- Options:
+  . Item : List of BottomNavigationBarItem
+  . There must be at least 2 (Icons, title)
+
+<img alt="bottom_navigation_bar.png" height="600" src="assets%2Fimages%2Fbottom_navigation_bar.png" width="300"/>
