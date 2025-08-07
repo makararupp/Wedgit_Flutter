@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/movielist_constant.dart';
@@ -14,6 +15,7 @@ class _ListViewPageState extends State<ListViewPage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
           title: Text("List View Builder",
             style: TextStyle(color: Colors.white),
@@ -28,6 +30,7 @@ class _ListViewPageState extends State<ListViewPage> {
       children: [
          _buildStory(),
          _buildListViewBuilder(),
+        _buildStory(),
       ],
     );
   }
@@ -69,16 +72,60 @@ class _ListViewPageState extends State<ListViewPage> {
   Widget _buildListViewBuilder(){
     return ListView.builder(
       shrinkWrap: true,
-       physics: BouncingScrollPhysics(),
-        itemCount: images.length,
+       physics: NeverScrollableScrollPhysics(),
+        itemCount: movieListConstant.length,
         itemBuilder: (context , index){
-           return Container(
-             color: Colors.black,
-             margin: EdgeInsets.all(10.0),
-             padding: EdgeInsets.all(20.0),
-             child: Image.network(images[index], fit: BoxFit.cover,),
-           );
+          return _buildListViewItem(movieListConstant[index]);
         },
+    );
+  }
+
+  Widget _buildListViewItem(Movie item){
+    return Card(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children:
+            [
+              IconButton(onPressed: (){},  icon: Icon(Icons.face)),
+              SizedBox(
+                width: 200.0,
+                  child: Text("${item.title}",
+                    overflow: TextOverflow.ellipsis,
+                  )
+              ),
+              Spacer(),
+              IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz),),
+            ],
+
+          ),
+          Container(
+            height: 400.0,
+            width: double.maxFinite,
+            child: Image.network(item.imageUrl,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Row(
+            children: [
+              IconButton(onPressed: (){},
+                  icon: Icon(CupertinoIcons.heart)
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.chat_bubble),
+              ),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.arrow_up_circle),
+              ),
+              Spacer(),
+              IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.bookmark),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
