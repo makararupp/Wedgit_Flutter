@@ -13,34 +13,49 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
+  final _scaffoldKey  = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: _buildBody(),
+      endDrawer: _buildEndDrawer(),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
+  Widget _buildEndDrawer(){
+    return Drawer();
+  }
+
+  List<Widget> _pages = [
+    TikTokViewPage(),
+    ListViewPage(),
+    RowColumnPage(),
+    CustomPage(),
+  ];
+
   Widget _buildBody(){
    return IndexedStack(
      index: _currentIndex,
-     children: [
-       TikTokViewPage(),
-       ListViewPage(),
-       RowColumnPage(),
-       CustomPage(),
-     ],
+     children: _pages,
    );
   }
-  int _currentIndex = 0;
 
+  int _currentIndex = 0;
   Widget _buildBottomNavigationBar(){
       return BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index){
-          setState(() {
-            _currentIndex = index;
-          });
+          if(index == _pages.length){
+            _scaffoldKey.currentState!.openEndDrawer();
+          }else{
+            setState(() {
+              _currentIndex = index;
+            });
+          }
         },
         type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.blue,
@@ -50,9 +65,11 @@ class _MainPageState extends State<MainPage> {
           items: [
             BottomNavigationBarItem(icon: (Icon(Icons.home)),label: "Home"),
             BottomNavigationBarItem(icon: (Icon(Icons.play_circle)),label: "Play"),
-            BottomNavigationBarItem(icon: (Icon(Icons.more_horiz)),label: "More"),
+            BottomNavigationBarItem(icon: (Icon(Icons.account_circle)),label: "Profile"),
             BottomNavigationBarItem(icon: (Icon(Icons.search)),label: "Search"),
+            BottomNavigationBarItem(icon: (Icon(Icons.more_horiz)),label: "More"),
           ]
       );
+
   }
 }
