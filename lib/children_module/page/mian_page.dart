@@ -31,8 +31,8 @@ class _MainPageState extends State<MainPage> {
   }
 
   List<Widget> _pages = [
-    TikTokViewPage(),
     ListViewPage(),
+    TikTokViewPage(),
     RowColumnPage(),
     CustomPage(),
   ];

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projects/children_module/page/detail_page.dart';
 
 import '../constants/movielist_constant.dart';
 import '../models/movie_model.dart';
@@ -17,8 +18,10 @@ class _ListViewPageState extends State<ListViewPage> {
     return  Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
+        backgroundColor: Colors.blue,
+        centerTitle: true,
           title: Text("List View Builder",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black),
           ),
       ),
       body: _buildBody(),
@@ -42,15 +45,22 @@ class _ListViewPageState extends State<ListViewPage> {
   ];
 
   Widget _buildStory(){
-    return SizedBox(
-      height: 250.0,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        physics: BouncingScrollPhysics(),
-        itemCount: movieListConstant.length,
-        itemBuilder: (context, index){
-          return  _buildStoryItem(movieListConstant[index]);
-        },
+    return InkWell(
+      onTap: (){
+         Navigator.of(context).push(
+           MaterialPageRoute(builder: (context)=> DetailPage()),
+         );
+      },
+      child: SizedBox(
+        height: 250.0,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          physics: BouncingScrollPhysics(),
+          itemCount: movieListConstant.length,
+          itemBuilder: (context, index){
+            return  _buildStoryItem(movieListConstant[index]);
+          },
+        ),
       ),
     );
   }

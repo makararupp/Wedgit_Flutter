@@ -84,3 +84,7 @@ Welcome to flutter 3 with the best guild
 - Design End Drawer
 
 <img alt="endDrawer.png" height="650" src="assets%2Fimages%2FendDrawer.png" width="300"/>
+
+15. I just work with Navigator for open other page or Detail page in flutter
+
+<img alt="navigator.png" height="700" src="assets%2Fimages%2Fnavigator.png" width="300"/>

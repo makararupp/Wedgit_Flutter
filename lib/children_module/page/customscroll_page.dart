@@ -116,6 +116,7 @@ class _CustomPageState extends State<CustomPage> {
 
   Widget _buildAppBar(){
     return SliverAppBar(
+      centerTitle: true,
       backgroundColor: Colors.blue,
       title: Text('Custom Scroll View'),
       floating: true,

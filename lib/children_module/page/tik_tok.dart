@@ -17,7 +17,9 @@ class _TikTokViewPageState extends State<TikTokViewPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("TikTok Page",style: TextStyle(color:Colors.white),),
+        backgroundColor: Colors.blue,
+        centerTitle: true,
+        title: Text("TikTok Page",style: TextStyle(color:Colors.black),),
       ),
       body: _buildBody(),
       //bottomNavigationBar: _buildButtom(),
