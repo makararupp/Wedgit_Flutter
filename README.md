@@ -88,3 +88,7 @@ Welcome to flutter 3 with the best guild
 15. I just work with Navigator for open other page or Detail page in flutter
 
 <img alt="navigator.png" height="700" src="assets%2Fimages%2Fnavigator.png" width="300"/>
+
+16. Pop Up
+
+<img alt="pop_up.png" height="700" src="assets%2Fimages%2Fpop_up.png" width="300"/>

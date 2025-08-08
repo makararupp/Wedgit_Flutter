@@ -4,6 +4,7 @@ import 'package:projects/children_module/page/row_column_page.dart';
 import 'package:projects/children_module/page/tik_tok.dart';
 
 import 'customscroll_page.dart';
+import 'listView_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -31,7 +32,7 @@ class _MainPageState extends State<MainPage> {
   }
 
   List<Widget> _pages = [
-    ListViewPage(),
+    ListviewPage(),
     TikTokViewPage(),
     RowColumnPage(),
     CustomPage(),
@@ -59,7 +60,7 @@ class _MainPageState extends State<MainPage> {
         },
         type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey[300],
           //showSelectedLabels: false,
          // showUnselectedLabels: false,
           items: [

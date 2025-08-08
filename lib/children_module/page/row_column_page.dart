@@ -88,7 +88,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
 
   Widget _buildTextBoxBar(){
     return  Container(
-      color: Colors.grey[400],
+      color: Colors.grey[200],
       padding: EdgeInsets.only(left: 10, right: 10, bottom: 30, top: 10),
       alignment: Alignment.topCenter,
       child: Row(

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projects/children_module/constants/movielist_constant.dart';
+import 'package:projects/children_module/page/detail_page.dart';
 
 import '../models/movie_model.dart';
 
@@ -16,9 +17,10 @@ class _ListviewPageState extends State<ListviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        centerTitle: true,
+        backgroundColor: Colors.blue,
         title: Text("ListView Page",
-          style: TextStyle(color: Colors.white, fontSize: 25.0),
+          style: TextStyle(color: Colors.white, fontSize: 23.0),
         ),
       ),
       body: _buildBody(),
@@ -193,13 +195,25 @@ class _ListviewPageState extends State<ListviewPage> {
       ),
       itemCount: movieListConstant.length,
       itemBuilder: (context, index){
-        return Container(
-          child: Image.network(
-            movieListConstant[index].imageUrl,
-            fit: BoxFit.cover,
+            return _buildGridItem(movieListConstant[index]);
+      },
+    );
+  }
+
+  Widget _buildGridItem(Movie item){
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context)=> DetailPage(item),
+            fullscreenDialog: true,
+            // We can to do with pup up the message.
           ),
         );
       },
+        child: Image.network(
+          item.imageUrl,
+          fit: BoxFit.cover,
+        ),
     );
   }
 
@@ -218,14 +232,21 @@ class _ListviewPageState extends State<ListviewPage> {
   }
 
   Widget _buildStoryItem(Movie item){
-      return Container(
-        width: 120.0,
-        margin: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(
-              image: NetworkImage(item.imageUrl),
-            fit: BoxFit.cover,
+      return InkWell(
+        onTap: (){
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context)=> DetailPage(item)),
+          );
+        },
+        child: Container(
+          width: 120.0,
+          margin: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+                image: NetworkImage(item.imageUrl),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       );

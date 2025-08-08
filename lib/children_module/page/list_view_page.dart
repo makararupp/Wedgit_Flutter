@@ -33,7 +33,7 @@ class _ListViewPageState extends State<ListViewPage> {
       children: [
          _buildStory(),
          _buildListViewBuilder(),
-        _buildStory(),
+         _buildStory(),
       ],
     );
   }
@@ -45,13 +45,7 @@ class _ListViewPageState extends State<ListViewPage> {
   ];
 
   Widget _buildStory(){
-    return InkWell(
-      onTap: (){
-         Navigator.of(context).push(
-           MaterialPageRoute(builder: (context)=> DetailPage()),
-         );
-      },
-      child: SizedBox(
+    return SizedBox(
         height: 250.0,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -61,8 +55,7 @@ class _ListViewPageState extends State<ListViewPage> {
             return  _buildStoryItem(movieListConstant[index]);
           },
         ),
-      ),
-    );
+      );
   }
 
   Widget _buildStoryItem(Movie item){
