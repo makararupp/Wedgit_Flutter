@@ -92,3 +92,7 @@ Welcome to flutter 3 with the best guild
 16. Pop Up
 
 <img alt="pop_up.png" height="700" src="assets%2Fimages%2Fpop_up.png" width="300"/>
+
+17. Design text search by lowerCase and space.
+
+<img alt="search.png" height="700" src="assets%2Fimages%2Fsearch.png" width="300"/>

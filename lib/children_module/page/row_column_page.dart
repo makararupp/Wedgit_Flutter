@@ -88,7 +88,7 @@ class _RowColumnPageState extends State<RowColumnPage> {
 
   Widget _buildTextBoxBar(){
     return  Container(
-      color: Colors.grey[200],
+      color: Colors.grey[300],
       padding: EdgeInsets.only(left: 10, right: 10, bottom: 30, top: 10),
       alignment: Alignment.topCenter,
       child: Row(
@@ -110,9 +110,11 @@ class _RowColumnPageState extends State<RowColumnPage> {
         borderRadius: BorderRadius.circular(100.0),
       ),
       child: TextField(
+        style: TextStyle(color: Colors.black, fontSize: 18.0),
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: "Message",
+          hintStyle: TextStyle(color: Colors.grey),
           suffixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.face)),
         ),
       ),

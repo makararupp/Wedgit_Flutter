@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projects/children_module/page/list_view_page.dart';
 import 'package:projects/children_module/page/row_column_page.dart';
+import 'package:projects/children_module/page/search_page.dart';
 import 'package:projects/children_module/page/tik_tok.dart';
 
 import 'customscroll_page.dart';
@@ -34,7 +35,7 @@ class _MainPageState extends State<MainPage> {
   List<Widget> _pages = [
     ListviewPage(),
     TikTokViewPage(),
-    RowColumnPage(),
+    SizedBox(),  // using custom for bottom search page,
     CustomPage(),
   ];
 
@@ -50,7 +51,13 @@ class _MainPageState extends State<MainPage> {
       return BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index){
-          if(index == _pages.length){
+          if(index == 2){
+            //check condition for search page.
+           Navigator.of(context).push(
+             MaterialPageRoute(builder: (context)=> SearchPage()),
+           );
+          }
+          else if(index == _pages.length){
             _scaffoldKey.currentState!.openEndDrawer();
           }else{
             setState(() {
@@ -66,8 +73,8 @@ class _MainPageState extends State<MainPage> {
           items: [
             BottomNavigationBarItem(icon: (Icon(Icons.home)),label: "Home"),
             BottomNavigationBarItem(icon: (Icon(Icons.play_circle)),label: "Play"),
-            BottomNavigationBarItem(icon: (Icon(Icons.account_circle)),label: "Profile"),
             BottomNavigationBarItem(icon: (Icon(Icons.search)),label: "Search"),
+            BottomNavigationBarItem(icon: (Icon(Icons.account_circle)),label: "Profile"),
             BottomNavigationBarItem(icon: (Icon(Icons.more_horiz)),label: "More"),
           ]
       );
