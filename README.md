@@ -99,4 +99,8 @@ Welcome to flutter 3 with the best guild
 
 18. This is State Management with noneState
 
-<img alt="noneState.png" height="600" src="assets%2Fimages%2FnoneState.png" width="300"/>
+<img alt="noneState.png" height="600" src="assets%2Fimages%2FnoneState.png" width="300"/>4
+ 19. NoneState Detail Page
+Noted : Can't save Data, When we use none state for call to other class with the constructor.
+
+<img alt="noneStateDetail.png" height="700" src="assets%2Fimages%2FnoneStateDetail.png" width="300"/>

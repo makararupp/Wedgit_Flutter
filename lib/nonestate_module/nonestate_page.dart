@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projects/nonestate_module/minus_button_widget.dart';
+import 'package:projects/nonestate_module/nonestate_detail_page.dart';
+import 'package:projects/nonestate_module/plus_button_widget.dart';
+import 'package:projects/nonestate_module/text_widget.dart';
 
 class NoneStatePage extends StatefulWidget {
   const NoneStatePage({super.key});
@@ -24,32 +28,23 @@ class _NoneStatePageState extends State<NoneStatePage> {
         style: TextStyle(color: Colors.white,fontSize: 24.0),
       ),
       actions: [
-        IconButton(onPressed: ()
-        {
-          setState(() {
-            _counter--;
-          });
+        MinusButtonWidget(),
+        PlusButtonWidget(),
+        IconButton(
+          onPressed: (){
+          Navigator.of(context).push(
+            MaterialPageRoute(
+                builder: (context)=> NoneStateDetailPage(_counter)
+            ),
+          );
         },
-            icon: Icon(Icons.remove,color: Colors.white,size: 28.0,),
-        ),
-        IconButton(onPressed: ()
-        {
-          setState(() {
-            _counter++;
-          });
-        },
-            icon: Icon(Icons.add, color: Colors.white,size: 28.0,),
+            icon: Icon(Icons.settings,color: Colors.white,),
         ),
       ],
     );
   }
-
   int _counter = 0;
-
   Widget _buildBody(){
-    return Container(
-      alignment: Alignment.center,
-      child: Text("Counter :${_counter}"),
-    );
+    return TextWidget(_counter);
   }
 }
