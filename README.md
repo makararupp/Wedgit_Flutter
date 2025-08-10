@@ -109,3 +109,7 @@ Noted : Can't save Data, When we use none state for call to other class with the
 20. State Management with provider
 
 <img alt="Provider.png" height="600" src="assets%2Fimages%2FProvider.png" width="300"/>
+
+22. Decrease and Increase font in form set state management
+
+<img alt="increase_decrease_font.png" height="600" src="assets%2Fimages%2Fincrease_decrease_font.png" width="300"/>
