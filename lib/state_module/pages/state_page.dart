@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projects/state_module/logics/theme_logic.dart';
+import 'package:provider/provider.dart';
 import 'minus_button_widget.dart';
 import 'plus_button_widget.dart';
 import 'state_detail_page.dart';
@@ -22,6 +24,9 @@ class _StatePageState extends State<StatePage> {
     );
   }
   Widget _buildDrawer(){
+
+    ThemeMode mode = context.watch<ThemeLogic>().mode;
+
     return Drawer(
       child: ListView(
         children: [
@@ -70,27 +75,33 @@ class _StatePageState extends State<StatePage> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.color_lens),
+            leading: mode == ThemeMode.light ?
+                Icon(Icons.check_box_outlined)
+               : Icon(Icons.check_box_outline_blank),
             title: Text("Change To Light Mode"),
             trailing: Icon(Icons.light_mode),
             onTap: (){
-
+              context.read<ThemeLogic>().changeToLightMode();
             },
           ),
           ListTile(
-            leading: Icon(Icons.color_lens),
+            leading: mode == ThemeMode.dark ?
+            Icon(Icons.check_box_outlined)
+                : Icon(Icons.check_box_outline_blank),
             title: Text("Change To Dark Mode"),
             trailing: Icon(Icons.dark_mode),
             onTap: (){
-
+              context.read<ThemeLogic>().changeToDarkMode();
             },
           ),
           ListTile(
-            leading: Icon(Icons.color_lens),
+            leading: mode == ThemeMode.system ?
+            Icon(Icons.check_box_outlined)
+                : Icon(Icons.check_box_outline_blank),
             title: Text("Change To System Mode"),
             trailing: Icon(Icons.brightness_auto),
             onTap: (){
-
+                context.read<ThemeLogic>().chanegToSystemMode();
             },
           ),
         ],

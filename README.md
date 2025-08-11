@@ -113,3 +113,12 @@ Noted : Can't save Data, When we use none state for call to other class with the
 22. Decrease and Increase font in form set state management
 
 <img alt="increase_decrease_font.png" height="600" src="assets%2Fimages%2Fincrease_decrease_font.png" width="300"/>
+
+23. Design Theme Mode for ToChange ThemeMode
+
++ Option :
+  - Light Mode
+  - Dark Mode
+  - System Mode
+
+<img alt="Theme_mode .png" height="750" src="assets%2Fimages%2FTheme_mode%20.png" width="300"/>
