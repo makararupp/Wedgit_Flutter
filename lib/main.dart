@@ -6,6 +6,6 @@ import 'package:projects/nonestate_module/nonestate_app.dart';
 import 'package:projects/state_module/apps/state_app.dart';
 
 void main(){
-  runApp(StateApp());
+  runApp(stateAppWithProvider());
 }
 
