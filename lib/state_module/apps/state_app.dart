@@ -15,12 +15,18 @@ class StateApp extends StatelessWidget {
       child: MaterialApp(
         home: StatePage(),
         debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.system,
         theme: ThemeData(
+           canvasColor: Colors.white,
+            appBarTheme: AppBarTheme(
+              color: Colors.pinkAccent,
+            ),
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.blue,
           appBarTheme: AppBarTheme(
-            color: Colors.blue,
-          ),
-          textTheme: Theme.of(context).textTheme.apply(
-            fontSizeFactor: 1.2, // Scale up all text sizes by 20%
+            color: Colors.blueGrey[900],
           ),
         ),
       ),

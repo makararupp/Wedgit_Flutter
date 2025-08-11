@@ -13,4 +13,5 @@ class CounterLogic extends ChangeNotifier{
     _counter++;
     notifyListeners();
   }
+
 }
